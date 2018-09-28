@@ -1,0 +1,216 @@
+* {
+  outline: none ;
+}
+body {
+  display: flex;
+  justify-content: center; 
+  font-weight: 100;
+  font-family: sans-serif;
+}
+.todos {
+  padding: 0;
+  margin: 0; 
+  width: 650px; 
+  align-items: center; 
+  flex-direction: column;
+  margin-top: 50px;
+  box-shadow:5px 5px 100px #d0def2,
+            -5px 5px 100px #d0def2;
+}
+.todos .todos-block {
+  border: 2px solid #c4dcff;
+  border-radius: 4px;
+  
+}
+.todos .block-1 {
+  width: 650px;
+  display: flex;  
+  align-items: center;  
+}
+.todos .block-1 .message {
+  width: 550px;   
+  font-size: 30px;
+  padding: 10px;
+  border: none;
+  font-style: italic;
+}
+.todos .block-1 .checkboxArrays {
+  border: none;
+  background: none;
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;  
+  margin-top: -5px;
+ }
+
+
+.todos .block-2 {  
+  width: 650px;  
+  word-wrap: break-word;
+}
+.todos .block-2 .label {
+  display: flex;     
+  align-items: center;  
+  border-bottom: 1px solid #c4dcff;
+}
+.todos .block-2 .checkbox {
+  width: 30px;
+  height: 30px;  
+  margin-left: 15px; 
+   transform: rotate(40deg);
+}
+.todos .block-2 .checkbox::before  { 
+  content: '+'; 
+    padding: 13px;
+    padding-left: 17px;
+    padding-right: 17px;
+  background: white;
+  border: 1px solid #c4dcff;
+  border-radius: 50%;
+  position: relative;
+  top: 7px;
+  left: -4px;
+  color: white;
+}
+.todos .block-2 .checkMark::after{
+  content: '+';
+  padding-left: 3px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid green;
+  border-right: 2px solid green;
+  position: relative;
+  top: -15px;
+  left: 11px;
+  color: white;
+}
+
+
+
+.todos .block-2 .label p {
+  width: 470px;
+  padding-left: 20px;
+  font-size: 30px;
+  margin-right: 30px; 
+  
+}
+.block-2 .label button {
+  background: none;
+  border: none;
+  font-size: 40px;
+  color: maroon;
+  transform: rotate(45deg);
+  transition-duration: 0.3s;
+  opacity: 0;
+}
+.block-2 .label:hover button {
+  transition-duration: 0.3s;
+  opacity: 1;
+}
+
+
+.todos .block-3 {
+  width: 650px;
+  
+}
+.todos .block-3 ul {
+  display: flex;  
+  margin: 0px;
+  padding: 0px;
+  
+}
+.todos .block-3 li {  
+  list-style: none;
+  margin: 10px;
+  margin-left: 15px;  
+}
+.todos .block-3 li button {
+  border: none;
+  background: none;
+}
+.todos .block-3 li:nth-child(1){
+  position: relative;
+  width: 150px;
+}
+.todos .block-3 li:nth-child(4) {
+  margin-right: 100px;  
+}
+.todos .block-3 li:nth-child(5) button{
+  border: none;
+  background: none;
+  
+}
+
+.activeInput {
+  transition-duration: 0.5s;
+  text-decoration: line-through ;
+  color: #c4dcff;
+  
+}
+.noActiveInput {  
+  transition-duration: 0.5s;
+  text-decoration: none;
+  opacity: 1;
+}
+.activeCheck { 
+  transition-duration: 0.5s;
+  opacity: 0.4;
+  margin-left: 22px;
+  margin-right: 23px;
+  transform: rotate(-45deg);
+  width: 15px;
+  height: 15px;
+}
+.noActiveCheck {
+  transition-duration: 0.5s;
+  opacity: 1;
+  margin-left: 19px;
+  margin-right: 16px; 
+  width: 25px;
+  height: 15px;
+  transform: rotate(310deg)
+}
+.noneCheck {
+  transition-duration: 0.5s;
+  opacity: 0;
+  transform: rotate(-45deg);
+}
+.activeBlockInput {  
+  border-bottom: 2px solid #c4dcff;
+}
+.activeBlockButton {
+  background: teal;
+  width: 650px;
+  display: none;
+  
+}
+.acvtiveButtonClearCompleted {
+  transition-duration: 0.5s;
+  opacity: 0;  
+}
+.noAcvtiveButtonClearCompleted:hover {
+  text-decoration: underline;
+}
+.noAcvtiveButtonClearCompleted {
+  transition-duration: 0.5s;
+  opacity: 1;
+}
+.todos .block-3 .borderButton {  
+  border: 1px solid maroon;  
+  border-radius: 3px; 
+}
+.todos .block-3 li:not(.borderButton):not(.completed) button:hover  {
+  border: 1px solid rgba(128, 0, 0, 0.5); 
+  border-radius: 3px;
+  margin-left: -1px;
+  margin-right: -1px;
+  border-radius: 3px;  
+}
+.activeTodosBlock {
+  box-shadow: 0 25px 0px -19px white,
+              0 25px 0px -18px #d0def2,
+              0 50px 0px -37px white ,
+              0 50px 0px -36px #d0def2,
+              5px 5px 100px #d0def2,
+              -5px 5px 100px #d0def2;
+}
+
+

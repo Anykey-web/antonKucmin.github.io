@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+        <title>menu</title>
+            <link rel="stylesheet" href="css\style.css">     
+  </head>
+
+  <body>
+    <div class="todos"> 
+      <div class="todos-block"
+      v-bind:class="{activeTodosBlock: arrays.length > 0}">     
+        <div class="block-1"
+        v-bind:class="{activeBlockInput: arrays.length > 0}">
+          <button class="checkboxArrays" type="button" v-on:click="checkboxArraysTrue"
+          v-bind:class="{activeCheck: counterArray(counter) != 0 ,
+                         noActiveCheck: counterArray(counter) == 0,
+                          noneCheck: arrays.length == 0}"></button>         
+          <input class="message" type="text" placeholder="What needs to be done?" 
+              v-model="message"
+              v-on:keyup.enter="saveMessage">          
+        </div>
+
+        <div class="block-2">        
+          <template class="template" v-for="(array, index) in showMessage(arrays)" >
+              <div class="label" >
+                
+                <input class="checkbox" type="checkbox"                    
+                    v-model="array.checkbox"
+                    v-bind:class="{checkMark: array.checkbox == true}"
+                    >
+                    <p v-bind:class="{activeInput: array.checkbox == true,
+                                   noActiveInput: array.checkbox == false}">
+                    {{array.name}}
+                    </p>    
+                              
+                <button type="button" name="button"    
+                    v-on:click.prevent="deleteArraysId(array.id)">+</button>
+              </div>           
+          </template>
+        </div>
+    
+        <div class="block-3"
+        v-bind:class="{activeBlockButton: arrays.length == 0}">
+          <ul>
+            <li >{{counterArray(counter)}}
+                 {{counterArray(counter) == 1?"item":"items"}} left </li><!-- сщетчик  -->
+
+              <li v-bind:class="{borderButton: button == 1}">
+                <button type="button" name="button"              
+                v-on:click='buttonAll'                
+                >All</button></li> <!-- все -->
+
+              <li v-bind:class="{borderButton: button == 2}">
+                <button type="button" name="button"
+                v-on:click='buttonActive'                
+                >Active</button></li> <!-- активные -->
+
+              <li v-bind:class="{borderButton: button == 3}"><button type="button" name="button"
+                v-on:click='buttonCompleted'                
+              >Completed</button></li> <!-- завершенный -->
+
+              <li class='completed'><button type="button" name="button" 
+                v-on:click="deleteTrue(arrays)"
+                v-bind:class="{
+                  acvtiveButtonClearCompleted: arrays.length == counterArray(counter),
+                  noAcvtiveButtonClearCompleted: arrays.length != counterArray(counter)}"
+                >Clear completed</button> </li> <!-- очистить завершено -->
+          </ul>
+        </div>
+      </div>
+    </div>
+          <script src="vue.js"></script>
+          <script src="main.js"></script>
+  </body>
+  
+</html>
